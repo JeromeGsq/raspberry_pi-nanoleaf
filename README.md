@@ -22,5 +22,7 @@ pi@raspberrypi:~/nanoleaf $ sudo ./publish/nano
 
 ___
 
-## You can run remotely with SSHFS
+## You can run remotely with SSHFS with SFTP Drive 
 PS C:\WINDOWS\system32> dotnet publish -r linux-arm; ssh pi@192.168.1.36 "/home/pi/nanoleaf/raspberry_pi-nanoleaf/run.sh"
+
+https://www.nsoftware.com/sftp/drive/
