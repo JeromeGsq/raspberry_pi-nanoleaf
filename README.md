@@ -26,3 +26,5 @@ ___
 PS C:\WINDOWS\system32> dotnet publish -r linux-arm; ssh pi@192.168.1.36 "/home/pi/nanoleaf/raspberry_pi-nanoleaf/run.sh"
 
 https://www.nsoftware.com/sftp/drive/
+
+![alt text](https://i.ibb.co/vhKs3Lf/Capture.png)
