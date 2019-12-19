@@ -1,5 +1,15 @@
 # raspberry_pi-nanoleaf
 
+## Create ssh key on windows 10 with Powershell
+PS C:\WINDOWS\system32> ssh-keygen
+
+## Get windows ssh-key 
+cat ~/.ssh/id_rsa.pub
+
+## Copy & paste windows ssh-key to remote 
+copy windows ssh-key inside this file (on remote) : ~/.ssh/authorized_keys
+____
+
 ## Build on windows 10 with Powershell
 dotnet publish -r linux-arm
 
