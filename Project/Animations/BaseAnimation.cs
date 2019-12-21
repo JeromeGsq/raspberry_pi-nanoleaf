@@ -36,8 +36,9 @@ namespace nano.Project.Animations
         {
         }
 
-        public virtual void Update()
+        public virtual bool Update()
         {
+            return true;
         }
 
         public virtual void End()
@@ -54,7 +55,7 @@ namespace nano.Project.Animations
             this.rpi?.Render();
         }
 
-        private void Clear()
+        public void Clear()
         {
             this.rpi?.SetAll(Color.Black);
         }
