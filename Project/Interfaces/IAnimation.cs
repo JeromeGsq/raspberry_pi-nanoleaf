@@ -10,7 +10,7 @@ namespace nano.Project.Interfaces
     {
         public void Init(WS281x rpi, int ledCount);
         public void Start();
-        public void Run();
+        public void Update();
         public void End();
         public void Apply();
     }

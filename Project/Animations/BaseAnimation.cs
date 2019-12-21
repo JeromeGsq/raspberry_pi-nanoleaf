@@ -36,7 +36,7 @@ namespace nano.Project.Animations
         {
         }
 
-        public virtual void Run()
+        public virtual void Update()
         {
         }
 

@@ -1,53 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 
 namespace nano.Project.Animations
 {
     public class RainbowAnimation : BaseAnimation
     {
+        private Random random;
 
-        protected override int TickDuration { get; set; } = 100;
+        protected override int TickDuration { get; set; } = 16;
 
         public override void Start()
         {
             base.Start();
+            this.random = new Random();
+        }
 
-            foreach (var led in this.LedGroup)
+        public override void Update()
+        {
+            base.Update();
+
+            for (int j = 0; j < this.LedGroup.Count; j++)
             {
-                led.Color = Color.Beige;
+                this.LedGroup[j].Color = Color.FromArgb(this.random.Next(0, 255), this.random.Next(0, 255), this.random.Next(0, 255));
             }
 
             this.Apply();
 
             Thread.Sleep(this.TickDuration);
-            Thread.Sleep(this.TickDuration);
-            Thread.Sleep(this.TickDuration);
-
-            this.Run();
-        }
-
-        public override void Run()
-        {
-            base.Run();
-
-            var rand = new Random(1);
-
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < this.LedGroup.Count; j++)
-                {
-                    this.LedGroup[j].Color = Color.FromArgb(rand.Next(255), rand.Next(255), rand.Next(255));
-                }
-
-                this.Apply();
-
-                Thread.Sleep(this.TickDuration);
-            }
-
-            this.End();
         }
 
         public override void End()
