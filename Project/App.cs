@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using nano.Project.Animations;
 using nano.Project.Interfaces;
 using rpi_ws281x;
@@ -19,35 +18,23 @@ namespace nano.Project
             this.rpi = rpi;
             this.ledCount = ledCount;
             this.args = args;
-
-            foreach (var item in args)
-            {
-                Console.WriteLine("item:" + item);
-            }
         }
 
         public void Start()
         {
             Console.WriteLine("-- Init");
 
-            if (this.args?.Length > 0)
+            switch (this.args[0])
             {
-                if (this.args[0].Equals("starwars"))
-                {
+                case "starwars":
                     this.animation = new JediAnimation();
-                }
-                else if (this.args[0].Equals("off"))
-                {
+                    break;
+                case "off":
                     this.animation = new OffAnimation();
-                }
-                else
-                {
+                    break;
+                default:
                     this.animation = new RainbowAnimation();
-                }
-            }
-            else
-            {
-                this.animation = new RainbowAnimation();
+                    break;
             }
 
             this.animation?.Init(rpi, this.ledCount);

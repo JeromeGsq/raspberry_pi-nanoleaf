@@ -1,6 +1,6 @@
 ﻿namespace System.Drawing
 {
-    public static class Colors
+    public static class ColorUtils
     {
         public static Color ClampedColor(int r, int g, int b, int a = 255)
         {
@@ -24,7 +24,7 @@
 
         public static Color ColorFromHSV(double hue, double saturation, double value)
         {
-            int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
+            int hueIntensity = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
             double f = hue / 60 - Math.Floor(hue / 60);
 
             value = value * 255;
@@ -33,15 +33,15 @@
             int q = Convert.ToInt32(value * (1 - f * saturation));
             int t = Convert.ToInt32(value * (1 - (1 - f) * saturation));
 
-            if (hi == 0)
+            if (hueIntensity == 0)
                 return Color.FromArgb(255, v, t, p);
-            else if (hi == 1)
+            else if (hueIntensity == 1)
                 return Color.FromArgb(255, q, v, p);
-            else if (hi == 2)
+            else if (hueIntensity == 2)
                 return Color.FromArgb(255, p, v, t);
-            else if (hi == 3)
+            else if (hueIntensity == 3)
                 return Color.FromArgb(255, p, q, v);
-            else if (hi == 4)
+            else if (hueIntensity == 4)
                 return Color.FromArgb(255, t, p, v);
             else
                 return Color.FromArgb(255, v, p, q);

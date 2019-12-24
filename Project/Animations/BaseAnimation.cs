@@ -42,7 +42,7 @@ namespace nano.Project.Animations
         }
 
         public virtual void End()
-        { 
+        {
             this.Clear();
         }
 

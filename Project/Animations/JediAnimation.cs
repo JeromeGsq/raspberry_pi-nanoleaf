@@ -57,9 +57,7 @@ namespace nano.Project.Animations
                 this.LedGroup[greenPosition].Color = Color.Green;
                 this.LedGroup[redPosition].Color = Color.Red;
 
-                // Apply
                 this.Apply();
-
                 Thread.Sleep(this.TickDuration);
                 Thread.Sleep(this.TickDuration);
                 Thread.Sleep(this.TickDuration);
@@ -88,7 +86,6 @@ namespace nano.Project.Animations
             // Clear
             this.LedGroup.ForEach(w => w.Color = Color.Black);
 
-            // Apply
             this.Apply();
             Thread.Sleep(this.TickDuration);
 

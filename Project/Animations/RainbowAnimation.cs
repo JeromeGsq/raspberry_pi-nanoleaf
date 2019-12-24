@@ -28,17 +28,16 @@ namespace nano.Project.Animations
             this.LedGroup.ForEach(w =>
                 {
                     double h, s, v;
-                    Colors.ColorToHSV(w.Color, out h, out s, out v);
+                    ColorUtils.ColorToHSV(w.Color, out h, out s, out v);
 
                     h += 2;
                     v += random.Next(-100, 100) / 1000;
                     v = Math.Clamp(v, 0.5f, 1);
 
-                    w.Color = Colors.ColorFromHSV(h, s, v);
+                    w.Color = ColorUtils.ColorFromHSV(h, s, v);
                 }
             );
 
-            // Apply
             this.Apply();
             Thread.Sleep(this.TickDuration);
 
